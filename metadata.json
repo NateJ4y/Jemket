@@ -1,0 +1,6 @@
+{
+  "name": "JEMKET Engineering",
+  "description": "Professional engineering and installation services providing integrated borehole water, electrical & building, and solar energy solutions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
