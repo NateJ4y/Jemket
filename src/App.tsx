@@ -35,63 +35,49 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 font-sans antialiased selection:bg-[#D32F2F] selection:text-white">
-      {/* 1. Header & Navigation */}
+    <div className="jemket-premium min-h-screen bg-white font-sans text-slate-900 antialiased selection:bg-[#E84A4A] selection:text-white">
       <Header
         onOpenBrochure={() => setBrochureOpen(true)}
         onOpenQuote={() => handleOpenQuote()}
       />
 
       <main>
-        {/* 2. Cinematic Hero */}
         <HeroSection
           onOpenQuote={() => handleOpenQuote()}
           onOpenBrochure={() => setBrochureOpen(true)}
           onSelectDivision={handleSelectDivision}
         />
 
-        {/* 3. Credibility & Trust Strip */}
         <TrustStrip />
 
-        {/* 4. Three Core Service Divisions */}
         <CoreDivisionsSection
           activeDivisionId={selectedDivision}
           onSelectDivision={handleSelectDivision}
           onOpenQuoteWithService={(svc) => handleOpenQuote(svc)}
         />
 
-        {/* 5. Why Choose JEMKET Engineering */}
-        <WhyChooseSection onOpenQuote={() => handleOpenQuote()} />
-
-        {/* 6. The Engineering Process */}
-        <ProcessSection onOpenQuote={() => handleOpenQuote()} />
-
-        {/* 7. Project Portfolio */}
         <PortfolioSection onOpenQuoteWithProject={(proj) => handleOpenQuote(proj)} />
 
-        {/* 8. Customer Sectors */}
+        <WhyChooseSection onOpenQuote={() => handleOpenQuote()} />
+
+        <ProcessSection onOpenQuote={() => handleOpenQuote()} />
+
         <CustomerSectorsSection onOpenQuoteWithSector={(sec) => handleOpenQuote(sec)} />
 
-        {/* 9. Our Commitment & Core Values */}
         <ValuesCommitmentSection />
 
-        {/* 10. Enquiry and Quote Request */}
         <QuoteCalculatorSection initialService={prefilledService} />
 
-        {/* 11. Final Call to Action */}
         <FinalCtaSection onOpenQuote={() => handleOpenQuote()} />
       </main>
 
-      {/* 12. Footer */}
       <Footer
         onOpenBrochure={() => setBrochureOpen(true)}
         onOpenQuote={() => handleOpenQuote()}
       />
 
-      {/* Mobile Floating Sticky Contact Bar */}
       <MobileContactBar onOpenQuote={() => handleOpenQuote()} />
 
-      {/* Official Company Profile Brochure Modal */}
       <BrochureModal
         isOpen={brochureOpen}
         onClose={() => setBrochureOpen(false)}
