@@ -108,6 +108,31 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({
                 transition={{ duration: 0.3 }}
                 className="rounded-xl border border-slate-200 bg-slate-50/50 hover:bg-white hover:border-[#0B1E4B]/50 hover:shadow-md transition-all flex flex-col justify-between overflow-hidden group"
               >
+                {/* Editorial project image — illustrative imagery, not a claim of a completed Jemket project */}
+                <div className="relative h-48 overflow-hidden bg-[#07152F] sm:h-52">
+                  <img
+                    src={
+                      project.divisionId === 'borehole'
+                        ? 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1000&q=80'
+                        : project.divisionId === 'electrical-building'
+                        ? 'https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=1000&q=80'
+                        : 'https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1000&q=80'
+                    }
+                    alt={
+                      project.divisionId === 'borehole'
+                        ? 'Infrastructure work on a construction site'
+                        : project.divisionId === 'electrical-building'
+                        ? 'Engineering technician working with equipment'
+                        : 'Solar panels in a renewable energy installation'
+                    }
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#07152F]/75 via-transparent to-transparent" />
+                  <span className="absolute bottom-4 left-5 text-[10px] font-bold uppercase tracking-[0.18em] text-white/90">Engineering discipline</span>
+                </div>
+
                 {/* Card Top Strip with Division Color */}
                 <div
                   className={`h-1.5 w-full ${
