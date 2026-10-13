@@ -135,6 +135,25 @@ export const WhyChooseSection: React.FC<WhyChooseSectionProps> = ({ onOpenQuote 
           </div>
         </div>
 
+        {/* People behind the work: field teams and technical coordination */}
+        <div className="mb-12 grid overflow-hidden rounded-2xl border border-white/10 bg-[#07152F] md:grid-cols-[1.05fr_0.95fr]">
+          <div className="relative min-h-64 sm:min-h-80">
+            <img
+              src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1400&q=85"
+              alt="A team collaborating on a technical project"
+              className="absolute inset-0 h-full w-full object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#07152F]/35 md:bg-gradient-to-l" />
+          </div>
+          <div className="flex flex-col justify-center p-6 sm:p-9 lg:p-12">
+            <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#F5C451]">People. Planning. Precision.</span>
+            <h3 className="mt-3 text-2xl font-black leading-tight tracking-tight text-white sm:text-3xl">Good engineering is a team effort.</h3>
+            <p className="mt-4 max-w-xl text-sm leading-6 text-slate-300">From the first site conversation to installation and handover, clear coordination keeps the work moving and the details connected.</p>
+          </div>
+        </div>
+
         {/* 8 Substantiated Strengths Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
           {strengths.map((item) => {
