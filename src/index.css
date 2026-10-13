@@ -4,10 +4,81 @@
   html {
     scroll-behavior: smooth;
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: #fff;
+    scroll-padding-top: 6rem;
   }
 
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  button:focus-visible,
+  a:focus-visible {
+    outline-offset: 4px;
+  }
+
+  ::selection {
+    background: #e84a4a;
+    color: #fff;
+  }
+}
+
+/* Jemket's premium editorial design system */
+.jemket-premium {
+  --jemket-ink: #07152f;
+  --jemket-red: #e84a4a;
+  --jemket-gold: #f5c451;
+  --jemket-muted: #64748b;
+}
+
+.jemket-premium main > section:not(#hero) {
+  scroll-margin-top: 6rem;
+}
+
+.jemket-premium main > section:not(#hero) h2 {
+  letter-spacing: -0.045em;
+  line-height: 1.08;
+}
+
+.jemket-premium main > section:not(#hero) h3 {
+  letter-spacing: -0.025em;
+}
+
+.jemket-premium main > section:not(#hero) [class*="rounded-xl"],
+.jemket-premium main > section:not(#hero) [class*="rounded-lg"] {
+  transition-property: transform, border-color, box-shadow, background-color;
+  transition-duration: 240ms;
+  transition-timing-function: cubic-bezier(0.2, 0.75, 0.25, 1);
+}
+
+.jemket-premium main > section:not(#hero) [class*="rounded-xl"]:hover,
+.jemket-premium main > section:not(#hero) [class*="rounded-lg"]:hover {
+  border-color: rgb(7 21 47 / 22%);
+}
+
+.jemket-hero .hero-grid {
+  opacity: 0.2;
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 7%) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 7%) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: linear-gradient(to bottom, black, transparent 90%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
