@@ -93,6 +93,41 @@ export const CoreDivisionsSection: React.FC<CoreDivisionsSectionProps> = ({
           })}
         </div>
 
+        {/* Real-world visual for the selected engineering discipline */}
+        <motion.div
+          key={`division-image-${currentDivision.id}`}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.35 }}
+          className="relative mb-6 h-56 overflow-hidden rounded-2xl bg-[#07152F] sm:h-72 lg:h-80"
+        >
+          <img
+            src={
+              currentDivision.id === 'borehole'
+                ? 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1800&q=85'
+                : currentDivision.id === 'electrical-building'
+                ? 'https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=1800&q=85'
+                : 'https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1800&q=85'
+            }
+            alt={
+              currentDivision.id === 'borehole'
+                ? 'Construction and infrastructure work on site'
+                : currentDivision.id === 'electrical-building'
+                ? 'Technical professional working with engineering equipment'
+                : 'Solar panels installed for renewable energy generation'
+            }
+            className="h-full w-full object-cover object-center transition-transform duration-700 hover:scale-[1.03]"
+            loading="lazy"
+            decoding="async"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#07152F]/90 via-[#07152F]/35 to-transparent" />
+          <div className="absolute inset-y-0 left-0 flex max-w-xl flex-col justify-end p-6 sm:p-9">
+            <span className="mb-2 text-[10px] font-bold uppercase tracking-[0.22em] text-[#F5C451]">JEMKET / FIELD WORK</span>
+            <p className="max-w-lg text-2xl font-black tracking-tight text-white sm:text-3xl">{currentDivision.headline}</p>
+            <p className="mt-2 max-w-lg text-sm leading-6 text-white/80">Practical engineering, planned around the needs of each site.</p>
+          </div>
+        </motion.div>
+
         {/* Division Detail Panel */}
         <AnimatePresence mode="wait">
           <motion.div
