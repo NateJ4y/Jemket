@@ -2,36 +2,19 @@ import React, { useState } from 'react';
 import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
 import { MobileContactBar } from './components/layout/MobileContactBar';
-import { HeroSection } from './components/sections/HeroSection';
-import { TrustStrip } from './components/sections/TrustStrip';
-import { CoreDivisionsSection } from './components/sections/CoreDivisionsSection';
-import { WhyChooseSection } from './components/sections/WhyChooseSection';
-import { ProcessSection } from './components/sections/ProcessSection';
-import { PortfolioSection } from './components/sections/PortfolioSection';
-import { CustomerSectorsSection } from './components/sections/CustomerSectorsSection';
-import { ValuesCommitmentSection } from './components/sections/ValuesCommitmentSection';
+import { LandingPage } from './components/sections/LandingPage';
 import { QuoteCalculatorSection } from './components/sections/QuoteCalculatorSection';
-import { FinalCtaSection } from './components/sections/FinalCtaSection';
 import { BrochureModal } from './components/modals/BrochureModal';
 import { NavigationController } from './services/NavigationController';
-import { ServiceDivisionId } from './types';
 
 export default function App() {
   const [brochureOpen, setBrochureOpen] = useState(false);
-  const [selectedDivision, setSelectedDivision] = useState<ServiceDivisionId>('borehole');
-  const [prefilledService, setPrefilledService] = useState<string>('Borehole Services');
-
+  const [prefilledService, setPrefilledService] = useState('General Enquiry');
   const navController = NavigationController.getInstance();
 
   const handleOpenQuote = (serviceName?: string) => {
-    if (serviceName) {
-      setPrefilledService(serviceName);
-    }
+    setPrefilledService(serviceName || 'General Enquiry');
     navController.scrollToSection('quote');
-  };
-
-  const handleSelectDivision = (divisionId: ServiceDivisionId) => {
-    setSelectedDivision(divisionId);
   };
 
   return (
@@ -42,33 +25,11 @@ export default function App() {
       />
 
       <main>
-        <HeroSection
-          onOpenQuote={() => handleOpenQuote()}
+        <LandingPage
+          onOpenQuote={handleOpenQuote}
           onOpenBrochure={() => setBrochureOpen(true)}
-          onSelectDivision={handleSelectDivision}
         />
-
-        <TrustStrip />
-
-        <CoreDivisionsSection
-          activeDivisionId={selectedDivision}
-          onSelectDivision={handleSelectDivision}
-          onOpenQuoteWithService={(svc) => handleOpenQuote(svc)}
-        />
-
-        <PortfolioSection onOpenQuoteWithProject={(proj) => handleOpenQuote(proj)} />
-
-        <WhyChooseSection onOpenQuote={() => handleOpenQuote()} />
-
-        <ProcessSection onOpenQuote={() => handleOpenQuote()} />
-
-        <CustomerSectorsSection onOpenQuoteWithSector={(sec) => handleOpenQuote(sec)} />
-
-        <ValuesCommitmentSection />
-
-        <QuoteCalculatorSection initialService={prefilledService} />
-
-        <FinalCtaSection onOpenQuote={() => handleOpenQuote()} />
+        <QuoteCalculatorSection key={prefilledService} initialService={prefilledService} />
       </main>
 
       <Footer
@@ -81,7 +42,7 @@ export default function App() {
       <BrochureModal
         isOpen={brochureOpen}
         onClose={() => setBrochureOpen(false)}
-        onSelectService={(svc) => handleOpenQuote(svc)}
+        onSelectService={(service) => handleOpenQuote(service)}
       />
     </div>
   );
