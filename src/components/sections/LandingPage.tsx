@@ -151,9 +151,14 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onOpenQuote, onOpenBro
               <div className="flex gap-3"><CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#F5C451]" /><div><h3 className="text-sm font-bold">Practical guidance</h3><p className="mt-1 text-xs leading-5 text-slate-400">Talk through options before deciding.</p></div></div>
               <div className="flex gap-3"><CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#F5C451]" /><div><h3 className="text-sm font-bold">Next steps made clear</h3><p className="mt-1 text-xs leading-5 text-slate-400">Know what information is needed to proceed.</p></div></div>
             </div>
-            <motion.button type="button" onClick={() => onOpenQuote()} whileHover={{ scale: 1.025, x: 2 }} whileTap={{ scale: 0.98 }} className="mt-8 inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-[#F5C451] px-6 py-3 text-sm font-black text-[#07152F] transition-colors hover:bg-amber-300">
-              Talk through your project <ArrowRight className="h-4 w-4" />
-            </motion.button>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <motion.button type="button" onClick={() => onOpenQuote()} whileHover={{ scale: 1.025, x: 2 }} whileTap={{ scale: 0.98 }} className="inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-[#F5C451] px-6 py-3 text-sm font-black text-[#07152F] transition-colors hover:bg-amber-300">
+                Talk through your project <ArrowRight className="h-4 w-4" />
+              </motion.button>
+              <button type="button" onClick={onOpenBrochure} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-white/20 px-5 py-3 text-sm font-bold text-white transition-colors hover:border-white/50 hover:bg-white/5">
+                View company profile <ArrowUpRight className="h-4 w-4" />
+              </button>
+            </div>
           </motion.div>
         </div>
       </section>
