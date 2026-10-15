@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight, ArrowUpRight, Droplets, Zap, Sun, ShieldCheck, CheckCircle2, MessageCircle, ClipboardCheck } from 'lucide-react';
-import { Button } from '../common/Button';
 import { ContactService } from '../../services/ContactService';
 import { NavigationController } from '../../services/NavigationController';
 
