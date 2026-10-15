@@ -10,13 +10,9 @@ export class NavigationController {
   public readonly navLinks: NavLinkItem[] = [
     { id: 'hero', label: 'Home', href: '#hero' },
     { id: 'services', label: 'Services', href: '#services' },
-    { id: 'why-us', label: 'Why JEMKET', href: '#why-us' },
-    { id: 'process', label: 'Our Process', href: '#process' },
-    { id: 'projects', label: 'Projects', href: '#projects' },
-    { id: 'sectors', label: 'Sectors', href: '#sectors' },
-    { id: 'about', label: 'About', href: '#about' },
-    { id: 'quote', label: 'Get a Quote', href: '#quote' },
-    { id: 'contact', label: 'Contact', href: '#contact' },
+    { id: 'why-us', label: 'Why Jemket', href: '#why-us' },
+    { id: 'process', label: 'How it works', href: '#process' },
+    { id: 'quote', label: 'Enquire', href: '#quote' },
   ];
 
   public static getInstance(): NavigationController {
